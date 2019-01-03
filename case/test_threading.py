@@ -10,4 +10,4 @@ for i in range(3):
 for j in threads:
 	j.start()
 
-print ('\ntest')
+print ('test')
