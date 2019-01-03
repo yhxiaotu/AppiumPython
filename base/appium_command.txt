@@ -1,0 +1,17 @@
+安装命令端appium：
+卸载客户端appium，不卸载可能会和命令端有冲突，cmd打开命令端，正常是npm install appium,但会安装失败，因为需要翻墙
+不翻墙的话，可以通过淘宝源安装
+通过npm安装淘宝源cnpm，
+npm install -g cnpm --registry=http://registry.npm.taobao.org
+然后通过cnpm安装appium
+cnpm install -g appium
+
+
+appium命令：
+
+指定某个端口
+appium -p xxxx(4700...4723...等等)
+监听多个端口
+appium -p 4723 -bp 4724
+端口对应设备
+appium -p 4723 -bp 4724 -U 127.0.0.1:21503
