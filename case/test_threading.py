@@ -9,3 +9,5 @@ for i in range(3):
 	threads.append(t)
 for j in threads:
 	j.start()
+
+print ('\ntest')
