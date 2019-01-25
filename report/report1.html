@@ -189,9 +189,9 @@ function showOutput(id, name) {
 
 <div class='heading'>
 <h1>自动化测试报告</h1>
-<p class='attribute'><strong>Start Time:</strong> 2018-12-15 15:55:40</p>
-<p class='attribute'><strong>Duration:</strong> 0:00:36.477188</p>
-<p class='attribute'><strong>Status:</strong> Pass 2</p>
+<p class='attribute'><strong>Start Time:</strong> 2019-01-25 17:45:19</p>
+<p class='attribute'><strong>Duration:</strong> 0:00:56.985121</p>
+<p class='attribute'><strong>Status:</strong> Error 4</p>
 <p class='attribute'><strong>Author:</strong> xdw</p>
 
 <p class='description'></p>
@@ -222,31 +222,39 @@ function showOutput(id, name) {
     <td>View</td>
 </tr>
 
-<tr class='passClass'>
+<tr class='errorClass'>
     <td>__mp_main__.CaseTest</td>
-    <td>2</td>
-    <td>2</td>
+    <td>4</td>
     <td>0</td>
     <td>0</td>
-    <td><a href="javascript:showClassDetail('c1',2)">Detail</a></td>
+    <td>4</td>
+    <td><a href="javascript:showClassDetail('c1',4)">Detail</a></td>
 </tr>
 
-<tr id='pt1.1' class='hiddenRow'>
-    <td class='none'><div class='testcase'>test_case01</div></td>
+<tr id='ft1.1' class='none'>
+    <td class='errorCase'><div class='testcase'>test_case01</div></td>
     <td colspan='5' align='center'>
 
     <!--css div popup start-->
-    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt1.1')" >
-        pass</a>
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft1.1')" >
+        error</a>
 
-    <div id='div_pt1.1' class="popup_window">
+    <div id='div_ft1.1' class="popup_window">
         <div style='text-align: right; color:red;cursor:pointer'>
-        <a onfocus='this.blur();' onclick="document.getElementById('div_pt1.1').style.display = 'none' " >
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft1.1').style.display = 'none' " >
            [x]</a>
         </div>
         <pre>
         
-pt1.1: setUp
+ft1.1: Traceback (most recent call last):
+  File "D:\AppiumPython\case\test_case.py", line 37, in test_case01
+    self.login_business.login_error()
+  File "D:/AppiumPython\business\login_business.py", line 16, in login_error
+    self.login_handle.send_username('15811061916')
+  File "D:/AppiumPython\handle\login_handle.py", line 11, in send_username
+    self.login_page.get_username_element().send_keys(user)
+AttributeError: 'NoneType' object has no attribute 'send_keys'
+setUp
 
 test_case01里面的参数 1
 tearDown
@@ -259,22 +267,94 @@ tearDown
     </td>
 </tr>
 
-<tr id='pt1.2' class='hiddenRow'>
-    <td class='none'><div class='testcase'>test_case02</div></td>
+<tr id='ft1.2' class='none'>
+    <td class='errorCase'><div class='testcase'>test_case01</div></td>
     <td colspan='5' align='center'>
 
     <!--css div popup start-->
-    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt1.2')" >
-        pass</a>
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft1.2')" >
+        error</a>
 
-    <div id='div_pt1.2' class="popup_window">
+    <div id='div_ft1.2' class="popup_window">
         <div style='text-align: right; color:red;cursor:pointer'>
-        <a onfocus='this.blur();' onclick="document.getElementById('div_pt1.2').style.display = 'none' " >
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft1.2').style.display = 'none' " >
            [x]</a>
         </div>
         <pre>
         
-pt1.2: setUp
+ft1.2: Traceback (most recent call last):
+  File "D:\AppiumPython\case\test_case.py", line 51, in tearDown
+    if sys.exc_info(parames)[0]:
+TypeError: exc_info() takes no arguments (1 given)
+setUp
+
+test_case01里面的参数 1
+tearDown
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft1.3' class='none'>
+    <td class='errorCase'><div class='testcase'>test_case02</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft1.3')" >
+        error</a>
+
+    <div id='div_ft1.3' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft1.3').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft1.3: Traceback (most recent call last):
+  File "D:\AppiumPython\case\test_case.py", line 44, in test_case02
+    self.login_business.login_pass()
+  File "D:/AppiumPython\business\login_business.py", line 11, in login_pass
+    self.login_handle.send_username('15811061916')
+  File "D:/AppiumPython\handle\login_handle.py", line 11, in send_username
+    self.login_page.get_username_element().send_keys(user)
+AttributeError: 'NoneType' object has no attribute 'send_keys'
+setUp
+
+test_case02里面的参数 1
+tearDown
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft1.4' class='none'>
+    <td class='errorCase'><div class='testcase'>test_case02</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft1.4')" >
+        error</a>
+
+    <div id='div_ft1.4' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft1.4').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft1.4: Traceback (most recent call last):
+  File "D:\AppiumPython\case\test_case.py", line 51, in tearDown
+    if sys.exc_info(parames)[0]:
+TypeError: exc_info() takes no arguments (1 given)
+setUp
 
 test_case02里面的参数 1
 tearDown
@@ -289,10 +369,10 @@ tearDown
 
 <tr id='total_row'>
     <td>Total</td>
-    <td>2</td>
-    <td>2</td>
+    <td>4</td>
     <td>0</td>
     <td>0</td>
+    <td>4</td>
     <td>&nbsp;</td>
 </tr>
 </table>

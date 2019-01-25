@@ -6,10 +6,12 @@ import HTMLTestRunner
 import threading
 import multiprocessing
 import time
+from keywords.run_main import RunMain
 from business.login_business import LoginBusiness
 from util.server import Server
 from appium import webdriver
 from util.write_device_command import WriteDeviceCommand
+
 
 class ParameTestCase(unittest.TestCase):
 	def __init__(self,methodName='runTest',parame=None):
@@ -22,12 +24,16 @@ class CaseTest(ParameTestCase):
 	def setUpClass(cls):
 		print ('setUpClass------->',parames)
 		cls.login_business = LoginBusiness(parames)
+		cls.run_main = RunMain(parames)
 
 	def setUp(self):
 		print ("setUp\n")
 
 	def test_case01(self):
 		print ("test_case01里面的参数",parames)
+		#多线程运行关键字模型
+		#self.run_main.run_method()
+		#多线程运行po模型
 		self.login_business.login_error()
 		#self.assertEqual(1,2,'数据应相等')
 		#self.assertNotEqual(1,2,'数据应不等')
@@ -42,6 +48,8 @@ class CaseTest(ParameTestCase):
 
 	def tearDown(self):
 		print ("tearDown")
+		if sys.exc_info()[0]:
+			self.login_business.login_handle.login_page.driver.save_screenshot("../jpg/jpgpo01png")
 
 	@classmethod
 	def tearDownClass(cls):
@@ -54,7 +62,7 @@ def appium_init():
 def get_suite(i):
 	print ("get_suite里面的",i)
 	suite = unittest.TestSuite()	
-	suite.addTest(CaseTest("test_case01",parame=i))
+	#suite.addTest(CaseTest("test_case01",parame=i))
 	suite.addTest(CaseTest("test_case02",parame=i))
 	#unittest.TextTestRunner().run(suite)
 	html_file = "D:/AppiumPython/report/report"+str(i)+".html"
@@ -68,6 +76,7 @@ def get_count():
 
 if __name__ == '__main__':
 	appium_init()
+	time.sleep(20)   #等待appium完全启动
 	#process = []
 	for i in range(get_count()):
 		#print (i)

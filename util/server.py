@@ -35,13 +35,13 @@ class Server:
 		return port_list
 
 	def create_command_list(self,i):
-		#拼接启动命令：appium -p 4700 -bp 4900 -U 127.0.0.1:21503
+		#拼接启动命令：appium -p 4700 -bp 4900 -U 127.0.0.1:21503 --no-reset --session-override --log D:/AppiumPython/log/log01.log
 		if self.devices_list != None:
 			appium_port_list = self.get_ports(4700)
 			bootstrap_port_list = self.get_ports(4900)
 			
 			command_list = []
-			command = ("appium -p " + str(appium_port_list[i]) + " -bp " + str(bootstrap_port_list[i]) + " -U " + self.devices_list[i] + " --no-reset --session-override")
+			command = ("appium -p " + str(appium_port_list[i]) + " -bp " + str(bootstrap_port_list[i]) + " -U " + self.devices_list[i] + " --no-reset --session-override --log D:/AppiumPython/log/log"+str(i)+".log")
 			command_list.append(command)
 			self.write_file.write_data(i,self.devices_list[i],str(appium_port_list[i]),str(bootstrap_port_list[i]))
 			return command_list
@@ -66,7 +66,6 @@ class Server:
 			for i in range(len(self.devices_list)):
 				appium_start = threading.Thread(target=self.start_server,args=(i,))
 				appium_start.start()
-			time.sleep(20)
 		else:
 			return '启动失败'
 
